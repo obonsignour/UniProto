@@ -25,6 +25,12 @@ h6 {
 	font-weight: 700;
 }
 
+.app-tabs {
+	display: flex;
+	justify-content: flex-start;
+
+	background-color: #343434;
+}
 .btn {
 	background-color: var(--background-blue);
 	border: none;
@@ -262,7 +268,7 @@ footer {
 	width: 50%;
 }
 
-.search-panel {
+.search-tab-content {
 	display: grid;
 	grid-template-areas: 'intro intro' 'input input' 'filters results' 'action action';
 	grid-template-columns: 1fr 5fr;

@@ -63,7 +63,10 @@
 			</div>
 
 			<!--  APP-PANEL -->
-			<div id="app-panel" class="panel">
+			<div id="app-panel" class="panel unmasked">
+				<div id="app-panel-tabs" class="app-tabs">
+					<img src="basecamp.png" alt="App Summary" />
+				</div>
 				<div id="app-panel-top" class="app-panel-top">
 					<div class="app-panel-title">
 						<span id="app-panel-title">Section 2</span>
@@ -72,28 +75,27 @@
 							<span>Rescan</span>
 						</div>
 					</div>
-
 					<div id="buttons" class="tabs">
 						<div id="app-summary-tab" class="tab">
-							<button type="submit" onclick="displayPanel('app-summary')">
+							<button type="submit" onclick="displayTabContent('app-summary')">
 								<span>App Summary</span>
 								<!-- <img class="inverted" src="app-summary.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
 						<div id="app-search-tab" class="tab selected">
-							<button type="submit" onclick="displayPanel('app-search')">
+							<button type="submit" onclick="displayTabContent('app-search')">
 								<span>Show me</span>
 								<!-- <img src="app-summary.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
 						<div id="impact-analysis-tab" class="tab">
-							<button type="submit" onclick="displayPanel('impact-analysis')">
+							<button type="submit" onclick="displayTabContent('impact-analysis')">
 								<span>Impact Analysis</span>
 								<!-- <img src="impact.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
 						<div id="automated-doc-tab" class="tab">
-							<button type="submit" onclick="displayPanel('automated-doc')">
+							<button type="submit" onclick="displayTabContent('automated-doc')">
 								<span>Ready to consume documentation</span>
 								<!-- <img src="auto-doc.png" alt="Automated Documentation" /> -->
 							</button>
@@ -101,7 +103,7 @@
 					</div>
 				</div>
 
-				<div id="app-summary" class="panel masked">
+				<div id="app-summary" class="tab-content masked">
 					<div class="app-metrics">
 						<h2>Application Metrics</h2>
 						<div class="app-size">
@@ -156,8 +158,8 @@
 					<h2>Architecture Preview</h2>
 				</div>
 
-				<div id="app-search" class="panel unmasked">
-					<div id="show-me-panel" class="search-panel">
+				<div id="app-search" class="tab-content unmasked">
+					<div id="show-me-tab-content" class="search-tab-content">
 						<div class="search-intro">
 							<h4>Use the search to select 1 to n objects to be displayed in a view and start to explore</h4>
 						</div>
@@ -222,13 +224,13 @@
 						</div>
 
 						<div id="search-actions" class="search-actions">
-							<button class="btn">Display</button>
+							<button class="btn" onclick="displayShowMe()">Display</button>
 						</div>
 					</div>
 				</div>
 
-				<div id="impact-analysis" class="panel masked">
-					<div id="impact-analysis-panel" class="search-panel">
+				<div id="impact-analysis" class="tab-content masked">
+					<div id="impact-analysis-tab-content" class="search-tab-content">
 						<div class="search-intro">
 							<h4>
 								Impact Analysis: choose an object to asses the impact of changes assess the connections between the User Interface (UI) and the database for a selected object
@@ -300,7 +302,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="automated-doc" class="panel masked">
+				<div id="automated-doc" class="tab-content masked">
 					<h3>Select any template to create a new ready to consume view</h3>
 					<h4>High-level architectural view of your application</h4>
 					<h4>Access to data</h4>
@@ -308,12 +310,20 @@
 					<h4>Services view</h4>
 				</div>
 			</div>
+
+			<div id="show-me-panel" class="panel masked">
+				<img src="show-me.png" alt="Show me" />
+			</div>
+
+			<div id="impact-analysis-panel" class="panel masked">
+				<img src="impact.png" alt="Impact Analysis" />
+			</div>
 		</div>
 
 		<footer>Prototype</footer>
 
 		<script>
-			function displayPanel(panelId) {
+			function displayTabContent(panelId) {
 				var btnToShutdown = document.querySelector('.tabs .tab.selected')
 				btnToShutdown.classList.remove('selected')
 				// btnToShutdown.querySelector('img').classList.remove('inverted')
@@ -322,15 +332,23 @@
 				// btnToHighlight.querySelector('img').classList.add('inverted')
 
 				var panelToDisplay = document.getElementById(panelId)
-				var panelDisplayed = document.querySelector('.panel .unmasked')
+				var panelDisplayed = document.querySelector('.tab-content.unmasked')
 				panelDisplayed.classList.remove('unmasked')
 				panelDisplayed.classList.add('masked')
 				panelToDisplay.classList.add('unmasked')
 				panelToDisplay.classList.remove('masked')
 			}
 
+			function displayShowMe() {
+				var panelToDisplay = document.getElementById('show-me-panel')
+				var panelDisplayed = document.querySelector('.panel.unmasked')
+				panelDisplayed.classList.remove('unmasked')
+				panelDisplayed.classList.add('masked')
+				panelToDisplay.classList.add('unmasked')
+				panelToDisplay.classList.remove('masked')
+			}
 			function displayLorem(appId) {
-				// var rightSection = document.getElementById('app-panel-details')
+				// var rightSection = document.getElementById('app-tab-content-details')
 				var appPanelTitle = document.getElementById('app-panel-title')
 				// var appName = document.getElementById('app' + appId).getElementById('name')
 				var appName = document.getElementById('app' + appId).getElementsByClassName('name')[0].innerHTML
