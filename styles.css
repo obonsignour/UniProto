@@ -25,6 +25,28 @@ h6 {
 	font-weight: 700;
 }
 
+.btn {
+	background-color: var(--background-blue);
+	border: none;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 2px 2px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.btn {
+	transition-duration: 0.4s;
+}
+
+.btn:hover {
+	filter: hue-rotate(90deg);
+	color: white;
+}
+
 .content {
 	display: flex;
 	height: 100%;
@@ -303,7 +325,7 @@ footer {
 	align-items: center;
 }
 
-.buttons-bar {
+.tabs {
 	grid-area: button;
 	/* height: 6rem; */
 	width: 100%;
@@ -312,7 +334,7 @@ footer {
 	justify-content: space-between;
 }
 
-.buttons-bar button {
+.tabs button {
 	border: none;
 	cursor: pointer;
 	appearance: none;
@@ -320,21 +342,21 @@ footer {
 	transition: transform 0.7s ease-in-out;
 }
 
-.buttons-bar button:hover {
+.tabs button:hover {
 	/* transform: rotate(360deg); */
 }
 
-.buttons-bar img {
+.tabs img {
 	width: 80px;
 	height: 80px;
 }
 
-.buttons-bar .selected {
+.tabs .selected {
 	background-color: grey;
 	color: white;
 }
 
-.btn {
+.tab {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -345,21 +367,21 @@ footer {
 	margin: 0 0.25rem;
 }
 
-.btn.selected {
+.tab.selected {
 	background-color: white;
 	color: var(--background-blue);
 }
 
-.btn .inverted {
+.tab .inverted {
 	filter: hue-rotate(270deg);
 }
 
-.btn span {
+.tab span {
 	font-size: 1.2rem;
 	font-weight: 700;
 	color: white;
 }
-.btn.selected span {
+.tab.selected span {
 	color: var(--background-blue);
 }
 .masked {

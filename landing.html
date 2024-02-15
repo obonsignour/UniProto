@@ -57,6 +57,9 @@
 						</ul>
 					</li>
 				</ul>
+				<button class="btn" id="add-app">
+					<span>Add Application</span>
+				</button>
 			</div>
 
 			<!--  APP-PANEL -->
@@ -70,26 +73,26 @@
 						</div>
 					</div>
 
-					<div id="buttons" class="buttons-bar">
-						<div id="app-summary-btn" class="btn">
+					<div id="buttons" class="tabs">
+						<div id="app-summary-tab" class="tab">
 							<button type="submit" onclick="displayPanel('app-summary')">
 								<span>App Summary</span>
 								<!-- <img class="inverted" src="app-summary.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
-						<div id="app-search-btn" class="btn selected">
+						<div id="app-search-tab" class="tab selected">
 							<button type="submit" onclick="displayPanel('app-search')">
 								<span>Show me</span>
 								<!-- <img src="app-summary.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
-						<div id="impact-analysis-btn" class="btn">
+						<div id="impact-analysis-tab" class="tab">
 							<button type="submit" onclick="displayPanel('impact-analysis')">
 								<span>Impact Analysis</span>
 								<!-- <img src="impact.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
-						<div id="automated-doc-btn" class="btn">
+						<div id="automated-doc-tab" class="tab">
 							<button type="submit" onclick="displayPanel('automated-doc')">
 								<span>Ready to consume documentation</span>
 								<!-- <img src="auto-doc.png" alt="Automated Documentation" /> -->
@@ -219,7 +222,7 @@
 						</div>
 
 						<div id="search-actions" class="search-actions">
-							<button>Display</button>
+							<button class="btn">Display</button>
 						</div>
 					</div>
 				</div>
@@ -292,8 +295,8 @@
 						</div>
 
 						<div id="search-actions" class="search-actions">
-							<button>Impact Analysis</button>
-							<button>Regression Scope</button>
+							<button class="btn">Impact Analysis</button>
+							<button class="btn">Regression Scope</button>
 						</div>
 					</div>
 				</div>
@@ -311,10 +314,10 @@
 
 		<script>
 			function displayPanel(panelId) {
-				var btnToShutdown = document.querySelector('.buttons-bar .btn.selected')
+				var btnToShutdown = document.querySelector('.tabs .tab.selected')
 				btnToShutdown.classList.remove('selected')
 				// btnToShutdown.querySelector('img').classList.remove('inverted')
-				var btnToHighlight = document.getElementById(panelId + '-btn')
+				var btnToHighlight = document.getElementById(panelId + '-tab')
 				btnToHighlight.classList.add('selected')
 				// btnToHighlight.querySelector('img').classList.add('inverted')
 
