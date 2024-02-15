@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Two Sections Page</title>
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<img src="logo.png" alt="Logo" width="1rem" height="3rem" />
+				<span class="label">CAST Imaging</span>
+			</div>
+			<div class="user">
+				<span class="username">Olivier</span>
+				<i class="fas fa-cog"></i>
+			</div>
+		</header>
+
+		<div id="content" class="content">
+			<div id="list-panel" class="panel first">
+				<h1>My Applications</h1>
+				<ul class="application-list">
+					<li>
+						No domain
+						<ul class="application-names">
+							<li id="app1" onclick="displayLorem(1)">
+								<div class="row">
+									<div class="column name">WebGoat</div>
+									<div class="column">S</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+							<li id="app2" onclick="displayLorem(2)">
+								<div class="row">
+									<div class="column name">Recipes</div>
+									<div class="column">M</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+							<li id="app3" onclick="displayLorem(3)">
+								<div class="row">
+									<div class="column name">Shopizer</div>
+									<div class="column">L</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+							<li id="app4" onclick="displayLorem(4)">
+								<div class="row">
+									<div class="column name">Application 4</div>
+									<div class="column">S</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+
+			<!--  APP-PANEL -->
+			<div id="app-panel" class="panel">
+				<div id="top-section" class="app-panel-top">
+					<div class="app-panel-title">
+						<span id="app-panel-title">Section 2</span>
+						<div id="refresh-bar" class="refresh-bar">
+							<i class="fas fa-sync-alt"></i>
+							<span>Rescan</span>
+						</div>
+					</div>
+					<div id="search-bar" class="search-bar">
+						<!-- <input type="text" placeholder="Search" />
+						<i class="fas fa-search"></i> -->
+					</div>
+
+					<div id="buttons" class="buttons-bar">
+						<div id="app-summary-btn" class="btn selected">
+							<span>App Summary</span>
+							<button type="submit" onclick="displayPanel('app-summary')">
+								<img class="inverted" src="app-summary.png" alt="Impact Analysis" />
+							</button>
+						</div>
+						<div id="app-search-btn" class="btn">
+							<span>Show me</span>
+							<button type="submit" onclick="displayPanel('app-search')">
+								<img src="app-summary.png" alt="Impact Analysis" />
+							</button>
+						</div>
+						<div id="impact-analysis-btn" class="btn">
+							<span>Impact Analysis</span>
+							<button type="submit" onclick="displayPanel('impact-analysis')">
+								<img src="impact.png" alt="Impact Analysis" />
+							</button>
+						</div>
+						<div id="automated-doc-btn" class="btn">
+							<span>Ready to consume documentation</span>
+							<button type="submit" onclick="displayPanel('automated-doc')">
+								<img src="auto-doc.png" alt="Automated Documentation" />
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div id="app-summary" class="panel unmasked">
+					<div class="app-metrics">
+						<h2>Application Metrics</h2>
+						<div class="app-size">
+							<div class="app-metric">1,117,548 Lines of Code</div>
+							<div class="scale">
+								<div class="bar">
+									<div class="filled" style="width: 59%"></div>
+								</div>
+								<div class="labels">
+									<span></span>
+									<span>S</span>
+									<span>M</span>
+									<span class="marker">L</span>
+									<span>XL</span>
+									<span>XXL</span>
+								</div>
+							</div>
+						</div>
+
+						<span class="app-metric">120,444 Objects & 543,134 relationships</span>
+						<span class="app-metric">876 Transactions</span>
+						<span class="app-metric">1,843 Data Call Graphs</span>
+
+						<span class="app-metric">Version Onboarding-202312220201</span>
+						<span class="app-metric">Version Date 11/1/2015</span>
+					</div>
+
+					<h2>Application technologies</h2>
+					<div class="bar-chart">
+						<div class="section" style="width: 50%; background-color: rgb(176, 114, 1)">
+							<span class="section-name">Java</span>
+							<span class="section-value">20%</span>
+						</div>
+						<div class="section" style="width: 20%; background-color: rgb(63, 123, 202)">
+							<span class="section-name">SQL</span>
+							<span class="section-value">30%</span>
+						</div>
+						<div class="section" style="width: 8%; background-color: rgb(193, 241, 2)">
+							<span class="section-name">JavaScript</span>
+							<span class="section-value">10%</span>
+						</div>
+						<div class="section" style="width: 12%; background-color: rgb(210, 82, 3)">
+							<span class="section-name">CSS</span>
+							<span class="section-value">25%</span>
+						</div>
+						<div class="section" style="width: 10%; background-color: rgb(227, 140, 0)">
+							<span class="section-name">HTML</span>
+							<span class="section-value">15%</span>
+						</div>
+					</div>
+
+					<h2>Architecture Preview</h2>
+				</div>
+				<div id="app-search" class="panel masked">
+					<span>Show me : choose 1 to n objects to be displayed in a view that you can manipulate</span>
+					<img src="search.png" alt="Search" style="width: 70vw" />
+				</div>
+				<div id="impact-analysis" class="panel masked">
+					<span>Impact Analysis: choose an object to modify and choose a "level" of impact from 1 to all (Start/End) </span>
+					<p>Asses the impact of changes on an object or a set of objects</p>
+					<span>Regression Scope</span>
+					<p>Assess the connections between tge User Interface (UI) and the database for a selected object</p>
+					<img src="search.png" alt="Search" style="width: 70vw" />
+					<button>Impact analysis</button><button>Regression Scope</button>
+				</div>
+				<div id="automated-doc" class="panel masked">
+					<h3>High-level architectural view of your application</h3>
+					<h3>Access to data</h3>
+					<h3>API usage</h3>
+					<h3>Services view</h3>
+				</div>
+			</div>
+		</div>
+
+		<footer>Prototype</footer>
+
+		<script>
+			function displayPanel(panelId) {
+				var btnToShutdown = document.querySelector('.buttons-bar .btn.selected')
+				btnToShutdown.classList.remove('selected')
+				btnToShutdown.querySelector('img').classList.remove('inverted')
+				var btnToHighlight = document.getElementById(panelId + '-btn')
+				btnToHighlight.classList.add('selected')
+				btnToHighlight.querySelector('img').classList.add('inverted')
+
+				var panelToDisplay = document.getElementById(panelId)
+				var panelDisplayed = document.querySelector('.panel .unmasked')
+				panelDisplayed.classList.remove('unmasked')
+				panelDisplayed.classList.add('masked')
+				panelToDisplay.classList.add('unmasked')
+				panelToDisplay.classList.remove('masked')
+			}
+
+			function displayLorem(appId) {
+				// var rightSection = document.getElementById('app-panel-details')
+				var appPanelTitle = document.getElementById('app-panel-title')
+				// var appName = document.getElementById('app' + appId).getElementById('name')
+				var appName = document.getElementById('app' + appId).getElementsByClassName('name')[0].innerHTML
+				appPanelTitle.innerHTML = appName //'Application ' + appId
+				var loremText = ''
+
+				// Add code to remove the 'selected' class from all items
+				var items = document.querySelectorAll('.application-list li')
+				items.forEach(function (item) {
+					item.classList.remove('selected')
+				})
+
+				// Add the 'selected' class to the clicked item
+				var selectedItem = document.getElementById('app' + appId)
+				selectedItem.classList.add('selected')
+				switch (appId) {
+					case 1:
+						loremText = 'App 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+						break
+					case 2:
+						loremText = 'App 2 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+						break
+					case 3:
+						loremText = 'App 3 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+						break
+					case 4:
+						loremText = 'App 4 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.'
+						break
+				}
+
+				// rightSection.innerHTML = loremText
+			}
+			// Add this to call displayLorem as soon as the page loads
+			window.onload = function () {
+				displayLorem(1)
+			}
+		</script>
+	</body>
+</html>

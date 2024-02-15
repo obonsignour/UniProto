@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+/* Define the global variable */
+:root {
+	--background-blue: rgb(48, 120, 208);
+}
+html {
+	height: 100%;
+}
+body {
+	font-family: 'Work Sans', 'Roboto', sans-serif;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Work Sans', 'Roboto', sans-serif;
+	font-weight: 700;
+}
+
+.content {
+	display: flex;
+	height: 100%;
+	flex-grow: 1;
+}
+
+.panel {
+	width: 50%;
+	float: left;
+	padding: 5px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+.panel.first {
+	width: 30vw;
+	max-width: 300px;
+	border-right: 1px solid black; /* Add this line */
+}
+.panel:not(.first) {
+	width: calc(100vw - 10px - min(300px, 30vw));
+	max-width: calc(100% - 20px);
+}
+header,
+footer {
+	width: 100%;
+	height: 2rem;
+	background-color: lightgray;
+	display: flex;
+	justify-content: space-between; /* Add this line */
+}
+footer {
+	margin-top: auto;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	margin-right: 5px;
+}
+
+.label {
+	font-weight: 400;
+}
+.user {
+	display: flex;
+	align-items: center;
+}
+
+.username {
+	margin-right: 5px;
+}
+
+.settings-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.application-list {
+	list-style-type: none;
+	padding: 0px;
+}
+
+.application-list li {
+	cursor: pointer;
+}
+
+.application-list li .row {
+	display: grid;
+	grid-template-columns: 3fr 1fr 2fr;
+}
+
+.application-names {
+	padding: 0em 1em 0em 2em;
+}
+.right-section {
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.selected {
+	background-color: #ccc;
+}
+
+.scale {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.bar {
+	width: 100%;
+	height: 20px;
+	background-color: #ddd;
+	margin-bottom: 10px;
+}
+
+.filled {
+	height: 100%;
+	background-color: #4caf50;
+}
+
+.labels,
+.markers {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.marker {
+	position: relative;
+}
+
+/* .marker::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 50%;
+	bottom: -10px;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #4caf50;
+	transform: translateX(-50%);
+} */
+
+.app-metrics {
+	display: flex;
+	flex-direction: column;
+}
+
+.app-size {
+	display: flex;
+}
+
+.app-metric {
+	display: flex;
+	inline-size: max-content;
+	white-space: nowrap;
+	align-items: flex-start;
+	padding: 0 0.5rem;
+}
+
+.bar-chart {
+	display: flex;
+	width: 100%;
+	height: 30px;
+	background-color: #ddd;
+}
+
+.section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5px;
+	background-color: #4caf50;
+	color: white;
+	box-sizing: border-box;
+	font-size: 0.8em;
+}
+
+.section:not(:first-child) {
+	border-left: 1px solid white;
+}
+.app-panel-top {
+	display: grid;
+	grid-template-areas: 'app-name' 'search' 'button';
+	grid-template-rows: 3fr 1fr 4fr;
+	height: 17rem;
+	background-color: var(--background-blue);
+}
+
+.app-panel-title {
+	grid-area: app-name;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 2.5em;
+	padding: 0 1rem;
+}
+
+.refresh-bar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0rem 1rem;
+}
+.refresh-bar i {
+	font-size: 1em;
+	cursor: pointer;
+	margin: 0 0.5rem;
+}
+
+.refresh-bar span {
+	/* font-family: 'Courier New', Courier, monospace; */
+	font-size: 0.5em;
+}
+
+.search-bar {
+	grid-area: search;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 0;
+}
+.search-bar input {
+	margin: 0 0.5rem;
+	width: 50%;
+}
+
+.buttons-bar {
+	grid-area: button;
+	/* height: 6rem; */
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-content: space-between;
+}
+
+.buttons-bar button {
+	border: none;
+	cursor: pointer;
+	appearance: none;
+	background-color: inherit;
+	transition: transform 0.7s ease-in-out;
+}
+
+.buttons-bar button:hover {
+	/* transform: rotate(360deg); */
+}
+
+.buttons-bar img {
+	width: 80px;
+	height: 80px;
+}
+
+.buttons-bar .selected {
+	background-color: grey;
+	color: white;
+}
+
+.btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.btn.selected {
+	background-color: white;
+	color: var(--background-blue);
+}
+
+.btn .inverted {
+	filter: hue-rotate(270deg);
+}
+
+.masked {
+	display: none;
+}
+.unmasked {
+	display: block;
+}
