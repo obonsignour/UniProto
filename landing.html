@@ -61,7 +61,7 @@
 
 			<!--  APP-PANEL -->
 			<div id="app-panel" class="panel">
-				<div id="top-section" class="app-panel-top">
+				<div id="app-panel-top" class="app-panel-top">
 					<div class="app-panel-title">
 						<span id="app-panel-title">Section 2</span>
 						<div id="refresh-bar" class="refresh-bar">
@@ -69,34 +69,30 @@
 							<span>Rescan</span>
 						</div>
 					</div>
-					<div id="search-bar" class="search-bar">
-						<!-- <input type="text" placeholder="Search" />
-						<i class="fas fa-search"></i> -->
-					</div>
 
 					<div id="buttons" class="buttons-bar">
 						<div id="app-summary-btn" class="btn">
-							<span>App Summary</span>
 							<button type="submit" onclick="displayPanel('app-summary')">
-								<img class="inverted" src="app-summary.png" alt="Impact Analysis" />
+								<span>App Summary</span>
+								<!-- <img class="inverted" src="app-summary.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
 						<div id="app-search-btn" class="btn selected">
-							<span>Show me</span>
 							<button type="submit" onclick="displayPanel('app-search')">
-								<img src="app-summary.png" alt="Impact Analysis" />
+								<span>Show me</span>
+								<!-- <img src="app-summary.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
 						<div id="impact-analysis-btn" class="btn">
-							<span>Impact Analysis</span>
 							<button type="submit" onclick="displayPanel('impact-analysis')">
-								<img src="impact.png" alt="Impact Analysis" />
+								<span>Impact Analysis</span>
+								<!-- <img src="impact.png" alt="Impact Analysis" /> -->
 							</button>
 						</div>
 						<div id="automated-doc-btn" class="btn">
-							<span>Ready to consume documentation</span>
 							<button type="submit" onclick="displayPanel('automated-doc')">
-								<img src="auto-doc.png" alt="Automated Documentation" />
+								<span>Ready to consume documentation</span>
+								<!-- <img src="auto-doc.png" alt="Automated Documentation" /> -->
 							</button>
 						</div>
 					</div>
@@ -158,11 +154,13 @@
 				</div>
 
 				<div id="app-search" class="panel unmasked">
-					<div id="search-panel" class="search-panel">
-						<div class="search-intro">Show me : choose 1 to n objects to be displayed in a view that you can manipulate</div>
+					<div id="show-me-panel" class="search-panel">
+						<div class="search-intro">
+							<h4>Use the search to select 1 to n objects to be displayed in a view and start to explore</h4>
+						</div>
 						<div class="search-input">
-							<label>Enter the name: </label>
 							<input type="text" placeholder="Search" />
+							<i class="fas fa-search"></i>
 						</div>
 						<div id="search-filters" class="search-filters">
 							<div class="search-filters-group">
@@ -212,23 +210,93 @@
 							</div>
 						</div>
 						<div class="search-results">
-							<div class="result-name">A SQL Table</div>
-							<div class="result-description">Description of the table</div>
-							<div class="result-name">A C# Class</div>
-							<div class="result-description">Description of the class</div>
-							<div class="result-name">A C# Method</div>
-							<div class="result-description">Description of the method</div>
+							<div class="cell name">A SQL Table</div>
+							<div class="cell description">Description of the table</div>
+							<div class="cell name">A C# Class</div>
+							<div class="cell description">Description of the class</div>
+							<div class="cell name">A C# Method</div>
+							<div class="cell description">Description of the method</div>
+						</div>
+
+						<div id="search-actions" class="search-actions">
+							<button>Impact Analysis</button>
+							<button>Regression Scope</button>
 						</div>
 					</div>
 				</div>
 
 				<div id="impact-analysis" class="panel masked">
-					<span>Impact Analysis: choose an object to modify and choose a "level" of impact from 1 to all (Start/End) </span>
-					<p>Asses the impact of changes on an object or a set of objects</p>
-					<span>Regression Scope</span>
-					<p>Assess the connections between tge User Interface (UI) and the database for a selected object</p>
-					<img src="search.png" alt="Search" style="width: 70vw" />
-					<button>Impact analysis</button><button>Regression Scope</button>
+					<div id="impact-analysis-panel" class="search-panel">
+						<div class="search-intro">
+							<h4>
+								Impact Analysis: choose an object to asses the impact of changes assess the connections between the User Interface (UI) and the database for a selected object
+							</h4>
+						</div>
+						<div class="search-input">
+							<input type="text" placeholder="Search" />
+							<i class="fas fa-search"></i>
+						</div>
+						<div id="search-filters" class="search-filters">
+							<div class="search-filters-group">
+								<h4>Types</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-table2" name="filter-table" value="filter-table" />
+									<label for="filter-table">SQL Tables</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-class2" name="filter-class" value="filter-class" />
+									<label for="filter-class">C# Class</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-method2" name="filter-method" value="filter-method" />
+									<label for="filter-method">C# Method</label>
+								</div>
+							</div>
+							<div class="search-filters-group">
+								<h4>Characteristics</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-characteristic-21" name="filter-characteristic-1" value="filter-characteristic-1" />
+									<label for="filter-characteristic-1">Filter 1</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-characteristic-22" name="filter-characteristic-2" value="filter-characteristic-2" />
+									<label for="filter-characteristic-2">Filter 2</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-characteristic-23" name="filter-characteristic-3" value="filter-characteristic-3" />
+									<label for="filter-characteristic-3">Filter 3</label>
+								</div>
+							</div>
+							<div class="search-filters-group">
+								<h4>Insights</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-insight-21" name="filter-insight-1" value="filter-insight-1" />
+									<label for="filter-insight-1">Filter 1</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-insight-22" name="filter-insight-2" value="filter-insight-2" />
+									<label for="filter-insight-2">Filter 2</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-insight-23" name="filter-insight-3" value="filter-insight-3" />
+									<label for="filter-insight-3">Filter 3</label>
+								</div>
+							</div>
+						</div>
+						<div class="search-results">
+							<div class="cell name">A SQL Table</div>
+							<div class="cell description">Description of the table</div>
+							<div class="cell name">A C# Class</div>
+							<div class="cell description">Description of the class</div>
+							<div class="cell name">A C# Method</div>
+							<div class="cell description">Description of the method</div>
+						</div>
+
+						<div id="search-actions" class="search-actions">
+							<button>Impact Analysis</button>
+							<button>Regression Scope</button>
+						</div>
+					</div>
 				</div>
 				<div id="automated-doc" class="panel masked">
 					<h3>High-level architectural view of your application</h3>
@@ -245,10 +313,10 @@
 			function displayPanel(panelId) {
 				var btnToShutdown = document.querySelector('.buttons-bar .btn.selected')
 				btnToShutdown.classList.remove('selected')
-				btnToShutdown.querySelector('img').classList.remove('inverted')
+				// btnToShutdown.querySelector('img').classList.remove('inverted')
 				var btnToHighlight = document.getElementById(panelId + '-btn')
 				btnToHighlight.classList.add('selected')
-				btnToHighlight.querySelector('img').classList.add('inverted')
+				// btnToHighlight.querySelector('img').classList.add('inverted')
 
 				var panelToDisplay = document.getElementById(panelId)
 				var panelDisplayed = document.querySelector('.panel .unmasked')
