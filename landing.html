@@ -75,13 +75,13 @@
 					</div>
 
 					<div id="buttons" class="buttons-bar">
-						<div id="app-summary-btn" class="btn selected">
+						<div id="app-summary-btn" class="btn">
 							<span>App Summary</span>
 							<button type="submit" onclick="displayPanel('app-summary')">
 								<img class="inverted" src="app-summary.png" alt="Impact Analysis" />
 							</button>
 						</div>
-						<div id="app-search-btn" class="btn">
+						<div id="app-search-btn" class="btn selected">
 							<span>Show me</span>
 							<button type="submit" onclick="displayPanel('app-search')">
 								<img src="app-summary.png" alt="Impact Analysis" />
@@ -102,7 +102,7 @@
 					</div>
 				</div>
 
-				<div id="app-summary" class="panel unmasked">
+				<div id="app-summary" class="panel masked">
 					<div class="app-metrics">
 						<h2>Application Metrics</h2>
 						<div class="app-size">
@@ -156,10 +156,71 @@
 
 					<h2>Architecture Preview</h2>
 				</div>
-				<div id="app-search" class="panel masked">
-					<span>Show me : choose 1 to n objects to be displayed in a view that you can manipulate</span>
-					<img src="search.png" alt="Search" style="width: 70vw" />
+				<div id="app-search" class="panel unmasked">
+					<div id="search-panel" class="search-panel">
+						<div class="search-intro">Show me : choose 1 to n objects to be displayed in a view that you can manipulate</div>
+						<div class="search-input">
+							<label>Enter the name: </label>
+							<input type="text" placeholder="Search" />
+						</div>
+						<div id="search-filters" class="search-filters">
+							<div class="search-filters-group">
+								<h4>Types</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-table" name="filter-table" value="filter-table" />
+									<label for="filter-table">SQL Tables</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-class" name="filter-class" value="filter-class" />
+									<label for="filter-class">C# Class</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-method" name="filter-method" value="filter-method" />
+									<label for="filter-method">C# Method</label>
+								</div>
+							</div>
+							<div class="search-filters-group">
+								<h4>Characteristics</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter1" name="filter1" value="filter1" />
+									<label for="filter1">Filter 1</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter2" name="filter2" value="filter2" />
+									<label for="filter2">Filter 2</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter3" name="filter3" value="filter3" />
+									<label for="filter3">Filter 3</label>
+								</div>
+							</div>
+							<div class="search-filters-group">
+								<h4>Insights</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter1" name="filter1" value="filter1" />
+									<label for="filter1">Filter 1</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter2" name="filter2" value="filter2" />
+									<label for="filter2">Filter 2</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter3" name="filter3" value="filter3" />
+									<label for="filter3">Filter 3</label>
+								</div>
+							</div>
+						</div>
+						<div class="search-results">
+							<div class="result-name">A SQL Table</div>
+							<div class="result-description">Description of the table</div>
+							<div class="result-name">A C# Class</div>
+							<div class="result-description">Description of the class</div>
+							<div class="result-name">A C# Method</div>
+							<div class="result-description">Description of the method</div>
+						</div>
+					</div>
 				</div>
+
 				<div id="impact-analysis" class="panel masked">
 					<span>Impact Analysis: choose an object to modify and choose a "level" of impact from 1 to all (Start/End) </span>
 					<p>Asses the impact of changes on an object or a set of objects</p>
