@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<link rel="stylesheet" href="final-styles.css" />
+		<title>Two Sections Page</title>
+	</head>
+	<body>
+		<header>
+			<div class="logo">
+				<img src="logo.png" alt="Logo" width="1rem" height="3rem" />
+				<span class="label">CAST Imaging</span>
+			</div>
+			<div class="user">
+				<span class="username">Olivier</span>
+				<i class="fas fa-cog"></i>
+			</div>
+		</header>
+
+		<div id="content" class="content">
+			<div id="list-panel" class="panel first">
+				<h1>My Applications</h1>
+				<ul class="application-list">
+					<li>
+						No domain
+						<ul class="application-names">
+							<li id="app1" onclick="displayLorem(1)">
+								<div class="row">
+									<div class="column name">WebGoat</div>
+									<div class="column">S</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+							<li id="app2" onclick="displayLorem(2)">
+								<div class="row">
+									<div class="column name">Recipes</div>
+									<div class="column">M</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+							<li id="app3" onclick="displayLorem(3)">
+								<div class="row">
+									<div class="column name">Shopizer</div>
+									<div class="column">L</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+							<li id="app4" onclick="displayLorem(4)">
+								<div class="row">
+									<div class="column name">Application 4</div>
+									<div class="column">S</div>
+									<div class="column">02/03/2024</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<button class="btn" id="add-app">
+					<span>Add Application</span>
+				</button>
+			</div>
+
+			<div id="display-panel" class="panel">
+				<div id="top-tabs" class="tabs">
+					<button class="tab selected" id="show-me-tab" onclick="displayTabContent('show-me')">
+						<span>Summary</span>
+					</button>
+					<button class="tab masked" id="impact-analysis-tab" onclick="displayTabContent('impact-analysis')">
+						<span>My Impact Analysis</span>
+					</button>
+					<button class="tab last" id="add-new-tab" onclick="displayTabContent('add-new')">
+						<span>+</span>
+					</button>
+				</div>
+
+				<div id="summary" class="display summary masked">
+					<div class="app-metrics">
+						<h2>Application Metrics</h2>
+						<div class="app-size">
+							<div class="app-metric">1,117,548 Lines of Code</div>
+							<div class="scale">
+								<div class="bar">
+									<div class="filled" style="width: 59%"></div>
+								</div>
+								<div class="labels">
+									<span></span>
+									<span>S</span>
+									<span>M</span>
+									<span class="marker">L</span>
+									<span>XL</span>
+									<span>XXL</span>
+								</div>
+							</div>
+						</div>
+
+						<span class="app-metric">120,444 Objects & 543,134 relationships</span>
+						<span class="app-metric">876 Transactions</span>
+						<span class="app-metric">1,843 Data Call Graphs</span>
+
+						<span class="app-metric">Version Onboarding-202312220201</span>
+						<span class="app-metric">Version Date 11/1/2015</span>
+					</div>
+
+					<h2>Application technologies</h2>
+					<div class="bar-chart">
+						<div class="section" style="width: 50%; background-color: rgb(176, 114, 1)">
+							<span class="section-name">Java</span>
+							<span class="section-value">20%</span>
+						</div>
+						<div class="section" style="width: 20%; background-color: rgb(63, 123, 202)">
+							<span class="section-name">SQL</span>
+							<span class="section-value">30%</span>
+						</div>
+						<div class="section" style="width: 8%; background-color: rgb(193, 241, 2)">
+							<span class="section-name">JavaScript</span>
+							<span class="section-value">10%</span>
+						</div>
+						<div class="section" style="width: 12%; background-color: rgb(210, 82, 3)">
+							<span class="section-name">CSS</span>
+							<span class="section-value">25%</span>
+						</div>
+						<div class="section" style="width: 10%; background-color: rgb(227, 140, 0)">
+							<span class="section-name">HTML</span>
+							<span class="section-value">15%</span>
+						</div>
+					</div>
+
+					<h2>Architecture Preview</h2>
+				</div>
+
+				<div id="add-new" class="display add-new">
+					<h3>Use the search to select 1 to n objects to be displayed in a view and start to explore</h3>
+					<div class="search">
+						<div class="search-input">
+							<input type="text" placeholder="Search" />
+							<i class="fas fa-search"></i>
+						</div>
+						<div id="search-filters" class="search-filters">
+							<div class="search-filters-group">
+								<h4>Types</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-table" name="filter-table" value="filter-table" />
+									<label for="filter-table">SQL Tables</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-class" name="filter-class" value="filter-class" />
+									<label for="filter-class">C# Class</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-method" name="filter-method" value="filter-method" />
+									<label for="filter-method">C# Method</label>
+								</div>
+							</div>
+							<div class="search-filters-group">
+								<h4>Characteristics</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-characteristic-1" name="filter-characteristic-1" value="filter-characteristic-1" />
+									<label for="filter-characteristic-1">Filter 1</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-characteristic-2" name="filter-characteristic-2" value="filter-characteristic-2" />
+									<label for="filter-characteristic-2">Filter 2</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-characteristic-3" name="filter-characteristic-3" value="filter-characteristic-3" />
+									<label for="filter-characteristic-3">Filter 3</label>
+								</div>
+							</div>
+							<div class="search-filters-group">
+								<h4>Insights</h4>
+								<div class="filter">
+									<input type="checkbox" id="filter-insight-1" name="filter-insight-1" value="filter-insight-1" />
+									<label for="filter-insight-1">Filter 1</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-insight-2" name="filter-insight-2" value="filter-insight-2" />
+									<label for="filter-insight-2">Filter 2</label>
+								</div>
+								<div class="filter">
+									<input type="checkbox" id="filter-insight-3" name="filter-insight-3" value="filter-insight-3" />
+									<label for="filter-insight-3">Filter 3</label>
+								</div>
+							</div>
+						</div>
+						<div class="search-results">
+							<div class="cell name">A SQL Table</div>
+							<div class="cell description">Description of the table</div>
+							<div class="cell name">A C# Class</div>
+							<div class="cell description">Description of the class</div>
+							<div class="cell name">A C# Method</div>
+							<div class="cell description">Description of the method</div>
+						</div>
+						<div id="search-actions" class="search-actions">
+							<button class="btn" onclick="displayShowMe()">Display</button>
+							<button class="btn" onclick="displayImpact()">Impact Analysis</button>
+							<button class="btn" onclick="displayImpact()">Regression Scope</button>
+						</div>
+					</div>
+					<div class="or-and">
+						<span>OR</span>
+					</div>
+					<div class="ready-to-consume">
+						<h3>Select any template to create a new ready to consume view</h3>
+						<h4>High-level architectural view of your application</h4>
+						<h4>Access to data</h4>
+						<h4>API usage</h4>
+						<h4>Services view</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>Prototype</footer>
+	</body>
+</html>
