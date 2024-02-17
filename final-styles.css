@@ -151,6 +151,13 @@ h6 {
 	transform: translateY(0);
 	pointer-events: auto;
 }
+.dropdown-heading {
+	font-size: 0.9rem;
+}
+
+.dropdown-heading.default {
+	font-weight: bold;
+}
 
 /* Panels */
 .label {
@@ -433,5 +440,8 @@ footer {
 
 .tab.selected {
 	background-color: white;
-	color: var(--background-blue);
+}
+
+.tab.selected span {
+	color: black;
 }
