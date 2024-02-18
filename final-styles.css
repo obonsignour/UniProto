@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 /* Define the global variable */
 :root {
-	--background-blue: rgb(48, 120, 208);
+	--background-blue: rgb(25, 118, 210);
 }
 html {
 	height: 100%;
@@ -401,6 +401,7 @@ footer {
 	font-size: 1.5rem;
 	padding: 2rem;
 }
+
 .add-new h3 {
 	text-align: center;
 }
@@ -441,4 +442,55 @@ footer {
 
 .tab.selected span {
 	color: black;
+}
+
+.blue-panel {
+	grid-template-rows: 8rem auto;
+}
+
+.blue-panel-header {
+	display: grid;
+	background-color: var(--background-blue);
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	color: white;
+}
+
+.blue-panel-header-cell {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.blue-panel-header-cell i {
+	font-size: 3rem;
+	position: relative;
+	top: 0;
+	left: 0;
+	color: var(--background-blue);
+	align-items: center;
+	justify-items: center;
+}
+.icon {
+	width: 80px;
+	height: 80px;
+}
+.icon-label {
+	text-align: center;
+}
+.stacked {
+	display: grid;
+	width: 80px;
+	height: 80px;
+	align-items: center;
+	justify-items: center;
+}
+.stacked > * {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+.background {
+	height: 70px;
+	width: 70px;
+	background-color: white;
+	border-radius: 50%;
 }
