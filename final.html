@@ -39,7 +39,7 @@
 			</div>
 		</header>
 
-		<div id="content" class="content">
+		<div id="page" class="page">
 			<div id="list-panel" class="panel first">
 				<h1>Welcome</h1>
 				<ul class="application-list">
@@ -142,24 +142,19 @@
 
 			<div id="display-panel" class="panel">
 				<div id="top-tabs" class="tabs">
-					<div class="tab">
-						<button class="tab" id="show-me-tab" onclick="displayTabContent('show-me')">
+					<div id="summary-tab" class="tab">
+						<button class="tab" onclick="displayTabContent('summary')">
 							<span>Summary</span>
 						</button>
 					</div>
-					<div class="tab masked">
-						<button id="impact-analysis-tab" onclick="displayTabContent('impact-analysis')">
-							<span>My Impact Analysis</span>
-						</button>
-					</div>
-					<div class="tab last selected">
-						<button id="add-new-tab" onclick="displayTabContent('add-new')">
+					<div id="add-new-v1-tab" class="tab last selected">
+						<button onclick="displayTabContent('add-new-v1')">
 							<span>+</span>
 						</button>
 					</div>
 				</div>
 
-				<div id="summary" class="display summary masked">
+				<div id="summary-content" class="display summary masked">
 					<div class="app-metrics">
 						<h2>Application Metrics</h2>
 						<div class="app-size">
@@ -214,7 +209,7 @@
 					<h2>Architecture Preview</h2>
 				</div>
 
-				<div id="add-new" class="display add-new">
+				<div id="add-new-v1-content" class="display add-new">
 					<h3>Use the search to select 1 to n objects to be displayed in a view and start to explore</h3>
 					<div class="search">
 						<div class="search-input">
@@ -296,5 +291,21 @@
 			</div>
 		</div>
 		<footer>Whatever we need here depending on Cloud or Unified</footer>
+
+		<script>
+			function displayTabContent(panelId) {
+				var tabToShutdown = document.querySelector('.tabs .tab.selected')
+				tabToShutdown.classList.remove('selected')
+
+				var tabToHighlight = document.getElementById(panelId + '-tab')
+				tabToHighlight.classList.add('selected')
+
+				var contents = document.querySelectorAll('.display')
+				contents.forEach((content) => content.classList.add('masked'))
+
+				var contentToDisplay = document.getElementById(panelId + '-content')
+				contentToDisplay.classList.remove('masked')
+			}
+		</script>
 	</body>
 </html>

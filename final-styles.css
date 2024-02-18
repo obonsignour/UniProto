@@ -210,13 +210,13 @@ footer {
 	margin-top: auto;
 }
 
-.content {
+.page {
 	display: flex;
 	height: 100%;
 	flex-grow: 1;
 }
 
-.panel .display .content div {
+.panel .display .page div {
 	border: 1px solid lightgrey;
 	display: flex;
 }
@@ -317,9 +317,6 @@ footer {
 .masked,
 .tab.masked {
 	display: none;
-}
-.display.unmasked {
-	display: block;
 }
 
 .search {
