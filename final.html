@@ -142,7 +142,6 @@
 
 			<div id="display-panel" class="panel">
 				<div id="top-tabs" class="tabs">
-					.
 					<div id="summary-tab" class="tab">
 						<button class="tab" onclick="displayTabContent('summary')">
 							<span>Summary</span>
@@ -151,6 +150,16 @@
 					<div id="add-new-v1-tab" class="tab masked">
 						<button onclick="displayTabContent('add-new-v1')">
 							<span>+</span>
+						</button>
+					</div>
+					<div id="show-me-tab" class="tab masked">
+						<button onclick="displayTabContent('show-me')">
+							<span>new View</span>
+						</button>
+					</div>
+					<div id="add-new-dialog-tab" class="tab">
+						<button onclick="displayTabContent('add-new-dialog')">
+							<span>+ via a dialog</span>
 						</button>
 					</div>
 					<div id="add-new-v2-tab" class="tab last selected">
@@ -382,16 +391,132 @@
 						</div>
 					</div>
 				</div>
+
+				<div id="show-me-content" class="panel-content masked">
+					<h2>Displaying the selected objects</h2>
+				</div>
 			</div>
 		</div>
 		<footer>Whatever we need here depending on Cloud or Unified</footer>
 
+		<dialog id="newViewDialog">
+			<div class="blue-panel-header">
+				<div class="blue-panel-header-cell">
+					<div class="stacked"><img class="background" src="White.png" alt="Impact" /><i class="fas fa-search"></i></div>
+					<span class="icon-label">Search</span>
+				</div>
+				<div class="blue-panel-header-cell">
+					<img class="icon" src="ImpactIcon.png" alt="Impact" />
+					<span class="icon-label">Impact Analysis</span>
+				</div>
+				<div class="blue-panel-header-cell">
+					<img class="icon" src="DocIcon.png" alt="" />
+					<span class="icon-label">Ready to consume documentation</span>
+				</div>
+				<div class="blue-panel-header-cell">
+					<img class="icon" src="QualityIcon.png" alt="Quality Improvement" />
+					<span class="icon-label">Quality Improvement</span>
+				</div>
+			</div>
+			<div class="blue-panel-content">
+				<h3>Use the search to select 1 to n objects to be displayed in a view and start to explore</h3>
+				<div class="search">
+					<div class="search-input">
+						<input type="text" placeholder="Search" />
+						<i class="fas fa-search"></i>
+					</div>
+					<div id="search-filters" class="search-filters">
+						<div class="search-filters-group">
+							<h4>Types</h4>
+							<div class="filter">
+								<input type="checkbox" id="filter-table" name="filter-table" value="filter-table" />
+								<label for="filter-table">SQL Tables</label>
+							</div>
+							<div class="filter">
+								<input type="checkbox" id="filter-class" name="filter-class" value="filter-class" />
+								<label for="filter-class">C# Class</label>
+							</div>
+							<div class="filter">
+								<input type="checkbox" id="filter-method" name="filter-method" value="filter-method" />
+								<label for="filter-method">C# Method</label>
+							</div>
+						</div>
+						<div class="search-filters-group">
+							<h4>Characteristics</h4>
+							<div class="filter">
+								<input type="checkbox" id="filter-characteristic-1" name="filter-characteristic-1" value="filter-characteristic-1" />
+								<label for="filter-characteristic-1">Filter 1</label>
+							</div>
+							<div class="filter">
+								<input type="checkbox" id="filter-characteristic-2" name="filter-characteristic-2" value="filter-characteristic-2" />
+								<label for="filter-characteristic-2">Filter 2</label>
+							</div>
+							<div class="filter">
+								<input type="checkbox" id="filter-characteristic-3" name="filter-characteristic-3" value="filter-characteristic-3" />
+								<label for="filter-characteristic-3">Filter 3</label>
+							</div>
+						</div>
+						<div class="search-filters-group">
+							<h4>Insights</h4>
+							<div class="filter">
+								<input type="checkbox" id="filter-insight-1" name="filter-insight-1" value="filter-insight-1" />
+								<label for="filter-insight-1">Filter 1</label>
+							</div>
+							<div class="filter">
+								<input type="checkbox" id="filter-insight-2" name="filter-insight-2" value="filter-insight-2" />
+								<label for="filter-insight-2">Filter 2</label>
+							</div>
+							<div class="filter">
+								<input type="checkbox" id="filter-insight-3" name="filter-insight-3" value="filter-insight-3" />
+								<label for="filter-insight-3">Filter 3</label>
+							</div>
+						</div>
+					</div>
+					<div class="search-results">
+						<div class="cell name">A SQL Table</div>
+						<div class="cell description">Description of the table</div>
+						<div class="cell name">A C# Class</div>
+						<div class="cell description">Description of the class</div>
+						<div class="cell name">A C# Method</div>
+						<div class="cell description">Description of the method</div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<div id="search-actions" class="search-actions">
+				<button class="btn" onclick="displayShowMe()">Display</button>
+				<button class="btn" onclick="cancelNewViewDialog()">Cancel</button>
+			</div>
+		</dialog>
+
 		<script>
+			function displayShowMe() {
+				const dialog = document.getElementById('newViewDialog')
+				dialog.close()
+				displayTabContent('show-me')
+			}
+			function okNewViewDialog() {
+				const dialog = document.getElementById('newViewDialog')
+				dialog.close()
+			}
+
+			function cancelNewViewDialog() {
+				const dialog = document.getElementById('newViewDialog')
+				dialog.close()
+			}
+
 			function displayTabContent(panelId) {
+				if (panelId === 'add-new-dialog') {
+					const dialog = document.getElementById('newViewDialog')
+					//dialog.show() // Opens a non-modal dialog
+					dialog.showModal() // Opens a modal
+					return
+				}
 				var tabToShutdown = document.querySelector('.tabs .tab.selected')
 				tabToShutdown.classList.remove('selected')
 
 				var tabToHighlight = document.getElementById(panelId + '-tab')
+				tabToHighlight.classList.remove('masked')
 				tabToHighlight.classList.add('selected')
 
 				var contents = document.querySelectorAll('.panel-content')
