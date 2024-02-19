@@ -142,6 +142,7 @@
 
 			<div id="display-panel" class="panel">
 				<div id="top-tabs" class="tabs">
+					.
 					<div id="summary-tab" class="tab">
 						<button class="tab" onclick="displayTabContent('summary')">
 							<span>Summary</span>
@@ -159,7 +160,7 @@
 					</div>
 				</div>
 
-				<div id="summary-content" class="display summary masked">
+				<div id="summary-content" class="panel-content summary-content masked">
 					<div class="app-metrics">
 						<h2>Application Metrics</h2>
 						<div class="app-size">
@@ -214,7 +215,7 @@
 					<h2>Architecture Preview</h2>
 				</div>
 
-				<div id="add-new-v1-content" class="display add-new masked">
+				<div id="add-new-v1-content" class="panel-content add-new masked">
 					<h3>Use the search to select 1 to n objects to be displayed in a view and start to explore</h3>
 					<div class="search">
 						<div class="search-input">
@@ -294,7 +295,7 @@
 					</div>
 				</div>
 
-				<div id="add-new-v2-content" class="display blue-panel">
+				<div id="add-new-v2-content" class="panel-content blue-panel">
 					<div class="blue-panel-header">
 						<div class="blue-panel-header-cell">
 							<div class="stacked"><img class="background" src="White.png" alt="Impact" /><i class="fas fa-search"></i></div>
@@ -313,7 +314,7 @@
 							<span class="icon-label">Quality Improvement</span>
 						</div>
 					</div>
-					<div>
+					<div class="blue-panel-content">
 						<h3>Use the search to select 1 to n objects to be displayed in a view and start to explore</h3>
 						<div class="search">
 							<div class="search-input">
@@ -393,7 +394,7 @@
 				var tabToHighlight = document.getElementById(panelId + '-tab')
 				tabToHighlight.classList.add('selected')
 
-				var contents = document.querySelectorAll('.display')
+				var contents = document.querySelectorAll('.panel-content')
 				contents.forEach((content) => content.classList.add('masked'))
 
 				var contentToDisplay = document.getElementById(panelId + '-content')
