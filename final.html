@@ -46,7 +46,7 @@
 					<li>
 						<h4>All applications</h4>
 						<ul class="application-names">
-							<li id="app1" class="dropdown" onclick="displayLorem(1)">
+							<li id="app1" class="dropdown" data-appname="WebGoat" onclick="displaySummary(this)">
 								<button class="link">
 									<div class="row">
 										<div class="column name">WebGoat</div>
@@ -54,10 +54,9 @@
 										<div class="column">02/03/2024</div>
 									</div>
 								</button>
-
-								<div class="dropdown-menu">
+								<dialog class="dropdown-menu">
 									<div>
-										<div class="dropdown-heading default">Display summary</div>
+										<div class="dropdown-heading default" onclick="displaySummary(this)">Display summary</div>
 										<div class="dropdown-heading">--------------</div>
 										<div class="dropdown-heading">Scan/Analyze (overview) ...</div>
 										<div class="dropdown-heading">Logs ...</div>
@@ -66,9 +65,9 @@
 										<div class="dropdown-heading"><br /></div>
 										<div class="dropdown-heading">Deep Analysis ...</div>
 									</div>
-								</div>
+								</dialog>
 							</li>
-							<li id="app2" class="dropdown" onclick="displayLorem(2)">
+							<li id="app2" class="dropdown" data-appname="Recipes" onclick="displaySummary(this)">
 								<button class="link">
 									<div class="row">
 										<div class="column name">Recipes</div>
@@ -76,9 +75,9 @@
 										<div class="column">02/03/2024</div>
 									</div>
 								</button>
-								<div class="dropdown-menu">
+								<dialog class="dropdown-menu">
 									<div>
-										<div class="dropdown-heading default">Display summary</div>
+										<div class="dropdown-heading default" onclick="displaySummary(this)">Display summary</div>
 										<div class="dropdown-heading">--------------</div>
 										<div class="dropdown-heading">Scan/Analyze (overview) ...</div>
 										<div class="dropdown-heading">Logs ...</div>
@@ -87,9 +86,9 @@
 										<div class="dropdown-heading"><br /></div>
 										<div class="dropdown-heading">Deep Analysis ...</div>
 									</div>
-								</div>
+								</dialog>
 							</li>
-							<li id="app3" class="dropdown" onclick="displayLorem(3)">
+							<li id="app3" class="dropdown" data-appname="Shopizer" onclick="displaySummary(this)">
 								<button class="link">
 									<div class="row">
 										<div class="column name">Shopizer</div>
@@ -97,9 +96,9 @@
 										<div class="column">02/03/2024</div>
 									</div>
 								</button>
-								<div class="dropdown-menu">
+								<dialog class="dropdown-menu">
 									<div>
-										<div class="dropdown-heading default">Display summary</div>
+										<div class="dropdown-heading default" onclick="displaySummary(this)">Display summary</div>
 										<div class="dropdown-heading">--------------</div>
 										<div class="dropdown-heading">Scan/Analyze (overview) ...</div>
 										<div class="dropdown-heading">Logs ...</div>
@@ -108,9 +107,9 @@
 										<div class="dropdown-heading"><br /></div>
 										<div class="dropdown-heading">Deep Analysis ...</div>
 									</div>
-								</div>
+								</dialog>
 							</li>
-							<li id="app4" class="dropdown" onclick="displayLorem(4)">
+							<li id="app4" class="dropdown" data-appname="Application 4" onclick="displaySummary(this)">
 								<button class="link">
 									<div class="row">
 										<div class="column name">Application 4</div>
@@ -119,9 +118,9 @@
 									</div>
 								</button>
 
-								<div class="dropdown-menu information-grid">
+								<dialog class="dropdown-menu">
 									<div>
-										<div class="dropdown-heading default">Display summary</div>
+										<div class="dropdown-heading default" onclick="displaySummary(this)">Display summary</div>
 										<div class="dropdown-heading">--------------</div>
 										<div class="dropdown-heading">Scan/Analyze (overview) ...</div>
 										<div class="dropdown-heading">Logs ...</div>
@@ -130,7 +129,7 @@
 										<div class="dropdown-heading"><br /></div>
 										<div class="dropdown-heading">Deep Analysis ...</div>
 									</div>
-								</div>
+								</dialog>
 							</li>
 						</ul>
 					</li>
@@ -142,7 +141,7 @@
 
 			<div id="display-panel" class="panel">
 				<div id="top-tabs" class="tabs">
-					<div id="summary-tab" class="tab">
+					<div id="summary-tab" class="tab masked">
 						<button class="tab" onclick="displayTabContent('summary')">
 							<span>Summary</span>
 						</button>
@@ -157,18 +156,21 @@
 							<span>new View</span>
 						</button>
 					</div>
-					<div id="add-new-dialog-tab" class="tab">
+					<div id="add-new-dialog-tab" class="tab last">
 						<button onclick="displayTabContent('add-new-dialog')">
-							<span>+ via a dialog</span>
-						</button>
-					</div>
-					<div id="add-new-v2-tab" class="tab last selected">
-						<button onclick="displayTabContent('add-new-v2')">
 							<span>+</span>
 						</button>
 					</div>
+					<!-- <div id="add-new-v2-tab" class="tab last selected">
+						<button onclick="displayTabContent('add-new-v2')">
+							<span>+</span>
+						</button>
+					</div> -->
 				</div>
 
+				<div id="blank-content" class="panel-content">
+					<h4>Select an application on the left to start consuming</h4>
+				</div>
 				<div id="summary-content" class="panel-content summary-content masked">
 					<div class="app-metrics">
 						<h2>Application Metrics</h2>
@@ -304,7 +306,7 @@
 					</div>
 				</div>
 
-				<div id="add-new-v2-content" class="panel-content blue-panel">
+				<div id="add-new-v2-content" class="panel-content masked blue-panel">
 					<div class="blue-panel-header">
 						<div class="blue-panel-header-cell">
 							<div class="stacked"><img class="background" src="White.png" alt="Impact" /><i class="fas fa-search"></i></div>
@@ -489,7 +491,83 @@
 			</div>
 		</dialog>
 
+		<script src="summary.js"></script>
 		<script>
+			document.addEventListener('click', (event) => {
+				const dropdown_menus = document.querySelectorAll('.dropdown-menu')
+				dropdown_menus.forEach((dropdown_menu) => {
+					if (dropdown_menu.open && !dropdown_menu.contains(event.target)) {
+						dropdown_menu.close()
+					}
+				})
+			})
+
+			document.addEventListener('mouseup', (event) => {
+				if (event.button == 2) {
+					const dropdowns = document.querySelectorAll('.dropdown')
+					dropdowns.forEach((dropdown) => {
+						console.log(event.target, dropdown.contains(event.target))
+						if (dropdown.contains(event.target)) {
+							dropdown.getElementsByClassName('dropdown-menu')[0].show()
+						}
+					})
+				}
+			})
+
+			document.addEventListener('contextmenu', (event) => {
+				if (event.button == 2) {
+					const dropdowns = document.querySelectorAll('.dropdown')
+					dropdowns.forEach((dropdown) => {
+						console.log(event.target, dropdown.contains(event.target))
+						if (dropdown.contains(event.target)) {
+							event.preventDefault()
+						}
+					})
+				}
+			})
+
+			function tabExists(tabId) {
+				return document.getElementById(tabId + '-tab') != null
+			}
+
+			function displaySummary(origin) {
+				const dropdowns = document.querySelectorAll('.dropdown')
+				dropdowns.forEach((dropdown) => {
+					if (dropdown == origin || dropdown.contains(origin)) {
+						console.log(dropdown.dataset.appname)
+						if (!tabExists('summary' + '-' + dropdown.dataset.appname)) {
+							addTab('summary', dropdown.dataset.appname)
+							addSummaryContent(dropdown.dataset.appname)
+						}
+						displayTabContent('summary' + '-' + dropdown.dataset.appname)
+						const dropdown_menu = dropdown.getElementsByClassName('dropdown-menu')[0]
+						dropdown_menu.close()
+					}
+				})
+			}
+
+			function addTab(tabType, appName) {
+				const tabs = document.getElementById('top-tabs')
+				const newTab = document.createElement('div')
+				newTab.id = tabType + '-' + appName + '-tab'
+				newTab.classList.add('tab')
+				newTab.classList.add('selected')
+				const newButton = document.createElement('button')
+				newButton.onclick = function () {
+					displayTabContent(tabType + '-' + appName)
+				}
+				const newSpan = document.createElement('span')
+				newSpan.innerText = appName
+				newButton.appendChild(newSpan)
+				newTab.appendChild(newButton)
+				tabs.appendChild(newTab)
+			}
+
+			function setTabName(tabId, appName) {
+				const tab = document.getElementById(tabId + '-tab')
+				tab.querySelector('span').innerText = appName
+			}
+
 			function displayShowMe() {
 				const dialog = document.getElementById('newViewDialog')
 				dialog.close()
@@ -513,7 +591,9 @@
 					return
 				}
 				var tabToShutdown = document.querySelector('.tabs .tab.selected')
-				tabToShutdown.classList.remove('selected')
+				if (tabToShutdown) {
+					tabToShutdown.classList.remove('selected')
+				}
 
 				var tabToHighlight = document.getElementById(panelId + '-tab')
 				tabToHighlight.classList.remove('masked')
